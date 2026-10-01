@@ -19,3 +19,10 @@ node_modules
 # wrangler 试运行产物
 .dry-run/
 deploy/worker/.dry-run/
+
+# 本地一键部署脚本（依赖本机路径与 .env，不入库）
+deploy-imgbed.sh
+
+# IDE 索引缓存
+.codeartsdoer/
+.codegraph/
