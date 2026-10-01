@@ -1,0 +1,21 @@
+.wrangler/*
+data/*
+node_modules
+/wrangler.toml
+.DS_Store
+
+*.sqlite
+*.sqlite-*
+
+.kiro/
+.vscode/
+.claude/
+.agents/
+
+# 本地部署密钥，绝不入库（内含 CLOUDFLARE_API_TOKEN）
+.env
+.env.local
+
+# wrangler 试运行产物
+.dry-run/
+deploy/worker/.dry-run/

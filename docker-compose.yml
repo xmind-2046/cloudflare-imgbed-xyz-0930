@@ -1,0 +1,8 @@
+services:
+  imgbed:
+    image: marseventh/cloudflare-imgbed:latest
+    ports:
+      - "7658:8080"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

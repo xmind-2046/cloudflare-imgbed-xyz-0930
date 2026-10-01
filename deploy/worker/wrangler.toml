@@ -1,0 +1,19 @@
+name = "cloudflare-imgbed-xyz-0930"
+main = "index.js"
+compatibility_date = "2024-08-21"
+compatibility_flags = ["global_fetch_strictly_public"]
+
+[assets]
+directory = "../../frontend-dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+
+[[d1_databases]]
+binding = "img_d1"
+database_name = "img_d1"
+database_id = "9e651b57-8ae9-4424-ae4e-4bc5895e52e8"
+
+[[r2_buckets]]
+binding = "img_r2"
+bucket_name = "img-r2"
