@@ -225,10 +225,13 @@ function getResponseCacheTtl(response) {
 }
 
 function isCacheLookupRequest(request) {
+    // Workers Cache API 不识别 Vary 头，带 Range 的请求若命中完整响应缓存会拿到全量 200，
+    // 反而比按需回源更慢。因此 Range 请求直接交给业务代码返回 206。
+    if (request.headers.has('Range')) return false;
     return request.method === 'GET' || request.method === 'HEAD';
 }
 
-// 只写入完整 GET 响应，Range 请求仅尝试命中已有完整缓存
+// 只写入完整 GET 响应
 function isCacheStoreRequest(request) {
     return request.method === 'GET' && !request.headers.has('Range');
 }

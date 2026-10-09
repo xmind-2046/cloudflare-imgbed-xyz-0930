@@ -22,6 +22,7 @@ deploy/worker/.dry-run/
 
 # 本地一键部署脚本（依赖本机路径与 .env，不入库）
 deploy-imgbed.sh
+deploy-imgbed.ps1
 
 # IDE 索引缓存
 .codeartsdoer/

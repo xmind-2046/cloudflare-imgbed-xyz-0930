@@ -12,7 +12,10 @@
     "test": "mocha",
     "start": "npx wrangler pages dev ./frontend-dist --kv \"img_url\" --r2 \"img_r2\" --ip 0.0.0.0 --port 8080 --persist-to ./data",
     "start:docker": "node --import ./deploy/server/register.mjs deploy/server/index.js",
-    "deploy:worker": "node deploy/worker/generate-routes.js && npx wrangler deploy --config deploy/worker/wrangler.toml"
+    "worker:routes": "node deploy/worker/generate-routes.js",
+    "worker:toml": "node deploy/worker/generate-toml.js",
+    "deploy:worker": "node deploy/worker/generate-routes.js && node deploy/worker/generate-toml.js && npx wrangler deploy --config deploy/worker/wrangler.toml",
+    "deploy:worker:dryrun": "node deploy/worker/generate-routes.js && node deploy/worker/generate-toml.js && npx wrangler deploy --config deploy/worker/wrangler.toml --dry-run --outdir deploy/worker/.dry-run"
   },
   "overrides": {
     "fast-xml-parser": "^5.3.6"

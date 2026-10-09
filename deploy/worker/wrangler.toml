@@ -1,13 +1,31 @@
 name = "cloudflare-imgbed-xyz-0930"
 main = "index.js"
+account_id = "988faa8226ef94ee076610b0049330f1"
 compatibility_date = "2024-08-21"
 compatibility_flags = ["global_fetch_strictly_public"]
+
+workers_dev = false
+preview_urls = false
+
+routes = [
+  { pattern = "maxs-zxtk.204680.xyz", custom_domain = true }
+]
 
 [assets]
 directory = "../../frontend-dist"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
 
+[observability.logs]
+enabled = true
+head_sampling_rate = 0.05
+invocation_logs = true
+persist = true
+
+[observability.traces]
+enabled = false
+head_sampling_rate = 1
+persist = true
 
 [[d1_databases]]
 binding = "img_d1"
